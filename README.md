@@ -12,3 +12,14 @@
 
 A fully customizable, accessible, and interactive star rating component built for **Next.js App Router** using **React** and **TypeScript**.  
 Supports half-star rendering, custom icons, read-only mode, and hydration-safe dynamic gradients.
+
+## ✨ Features
+
+- ⭐ Full and half-star support
+- 🖌️ Customizable star icons (default provided)
+- 🎨 Adjustable active/inactive colors
+- 🔒 Read-only mode
+- ♿ Keyboard and screen reader accessible
+- 🚀 Optimized with `useCallback` and `useMemo`
+- 🛠️ Hydration-safe gradients with `useId`
+- ✅ Built-in TypeScript types
