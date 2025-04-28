@@ -32,3 +32,35 @@ Supports half-star rendering, custom icons, read-only mode, and hydration-safe d
 
 Place the ```Rating.tsx``` file inside your ```src/components/``` folder.
     
+## ⚙️ Usage
+
+Here’s a full working example of how to use the `Rating` component interactively:
+
+```tsx
+"use client";
+
+import React, { useState, useCallback } from 'react';
+import Rating from '@/components/Rating'; // Adjust the import path accordingly
+
+export function RatingExample() {
+  const [currentRating, setCurrentRating] = useState(3.5);
+
+  // Memoized callback to handle rating changes
+  const handleRatingChange = useCallback((newRating: number) => {
+    console.log("New rating selected (whole number):", newRating);
+    setCurrentRating(newRating);
+  }, []);
+
+  return (
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h2>Interactive Rating (allows float initial)</h2>
+      <Rating
+        initialValue={currentRating}
+        onChange={handleRatingChange}
+        size={32}
+        activeColor="darkorange"
+      />
+      <p>Selected Rating: {currentRating}</p>
+    </div>
+  );
+}
