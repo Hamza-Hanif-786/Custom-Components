@@ -23,3 +23,12 @@ Supports half-star rendering, custom icons, read-only mode, and hydration-safe d
 - 🚀 Optimized with `useCallback` and `useMemo`
 - 🛠️ Hydration-safe gradients with `useId`
 - ✅ Built-in TypeScript types
+
+## Installation
+
+```bash
+  # No separate package - Copy the component directly into your project
+```
+
+Place the ```Rating.tsx``` file inside your ```src/components/``` folder.
+    
