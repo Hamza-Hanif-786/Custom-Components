@@ -68,7 +68,6 @@ export function RatingExample() {
 
 ## 🛠️ Props
 
-
 |  Prop   |   Type   | Default |      Description      |
 | ------- | -------  | ------- | --------------------- |
 | `count` | `number` |   `5`   | Total number of stars |
@@ -80,3 +79,16 @@ export function RatingExample() {
 | `readonly` | `boolean` | `false` | Disables interactions when true |
 | `className` | `string` | `''` | Custom class name for styling |
 | `customIcon` | `React.ComponentType<{...props}>` | `StarIcon` | Replace default star with a custom component |
+
+
+## 🧩 Example Variants
+
+```tsx
+// Read-only rating display
+<Rating initialValue={4.2} readonly size={20} activeColor="#0d6efd" />
+
+// 10-star rating system
+<Rating count={10} initialValue={7.5} size={18} />
+
+// Using a custom SVG icon
+<Rating customIcon={MyCustomHeartIcon} initialValue={2} size={30} />
