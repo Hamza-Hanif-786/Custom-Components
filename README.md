@@ -64,3 +64,19 @@ export function RatingExample() {
     </div>
   );
 }
+```
+
+## 🛠️ Props
+
+
+|  Prop   |   Type   | Default |      Description      |
+| ------- | -------  | ------- | --------------------- |
+| `count` | `number` |   `5`   | Total number of stars |
+| `initialValue` | `number` | `0` | Initial rating (supports floats like 3.5) |
+| `onChange` | `(value: number) => void` | `undefined` | Callback when rating changes |
+| `size` | `number` | `24` | Size of each star (pixels) |
+| `activeColor` | `string` | `#ffc107` | Color of filled stars |
+| `inactiveColor` | `string` | `#e4e5e9` | Color of empty stars |
+| `readonly` | `boolean` | `false` | Disables interactions when true |
+| `className` | `string` | `''` | Custom class name for styling |
+| `customIcon` | `React.ComponentType<{...props}>` | `StarIcon` | Replace default star with a custom component |
