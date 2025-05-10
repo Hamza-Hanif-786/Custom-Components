@@ -24,7 +24,7 @@ Supports half-star rendering, custom icons, read-only mode, and hydration-safe d
 - 🛠️ Hydration-safe gradients with `useId`
 - ✅ Built-in TypeScript types
 
-## Installation
+## 📦 Installation
 
 ```bash
   # No separate package - Copy the component directly into your project
