@@ -177,3 +177,40 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   );
 }
 ```
+
+## 🎬 Adding Scroll-Triggered Animations
+You can use the `useGSAP` hook to create scroll-triggered animations within your components.
+
+```tsx
+// components/FeatureSection.tsx
+'use client';
+
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+
+export default function FeatureSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (sectionRef.current) {
+      gsap.to(sectionRef.current, {
+        y: -50,
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top bottom',
+          end: 'top center',
+          scrub: true,
+        },
+      });
+    }
+  }, []);
+
+  return (
+    <section ref={sectionRef} style={{ opacity: 0 }}>
+      {/* Your content */}
+    </section>
+  );
+}
+```
