@@ -92,3 +92,6 @@ export function RatingExample() {
 
 // Using a custom SVG icon
 <Rating customIcon={MyCustomHeartIcon} initialValue={2} size={30} />
+```
+
+---
