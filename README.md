@@ -95,3 +95,85 @@ export function RatingExample() {
 ```
 
 ---
+
+# 2. 🚀 Next.js + GSAP ScrollSmoother Integration
+This project demonstrates how to implement GSAP's ScrollSmoother across all pages in a Next.js App Router application using TypeScript and React, while maintaining server-side rendering (SSR) benefits.
+
+## 📦 Installation
+
+Install the necessary dependencies:
+    
+```bash
+  npm install gsap @gsap/react
+```
+
+## 🛠️ Setup
+
+### 1. Create the `ScrollSmootherWrapper` Component
+
+This client component initializes `ScrollSmoother` and wraps your application's content.
+
+```tsx
+// components/ScrollSmootherWrapper.tsx
+'use client';
+
+import { ReactNode, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+interface Props {
+  children: ReactNode;
+}
+
+export default function ScrollSmootherWrapper({ children }: Props) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (typeof window !== 'undefined') {
+      ScrollSmoother.create({
+        wrapper: wrapperRef.current!,
+        content: contentRef.current!,
+        smooth: 1.5,
+        effects: true,
+        smoothTouch: false,
+      });
+    }
+  }, []);
+
+  return (
+    <div ref={wrapperRef} id="smooth-wrapper">
+      <div ref={contentRef} id="smooth-content">
+        {children}
+      </div>
+    </div>
+  );
+}
+```
+
+### 2. Update `app/layout.tsx`
+
+Wrap your application's content with the `ScrollSmootherWrapper` component.
+
+```tsx
+// app/layout.tsx
+import { ReactNode } from 'react';
+import ScrollSmootherWrapper from '@/components/ScrollSmootherWrapper';
+import '@/styles/globals.css';
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <ScrollSmootherWrapper>
+          {children}
+        </ScrollSmootherWrapper>
+      </body>
+    </html>
+  );
+}
+```
